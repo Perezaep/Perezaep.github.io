@@ -163,7 +163,7 @@ section {
 
 /* Video */
 
-iframe {
+video, iframe {
   width: 100%;
   border-radius: 15px;
   margin-top: 15px;
@@ -192,6 +192,9 @@ footer {
   opacity: 0.7;
   font-size: 0.9rem;
 }
+
+/* Mobile */
+
 @media (max-width: 768px) {
 
   nav {
@@ -255,7 +258,6 @@ footer {
     text-align: center;
   }
 }
-
 </style>
 </head>
 
@@ -321,12 +323,16 @@ footer {
 
     <div class="card">
       <h3>Viral Edit (300K+ Views)</h3>
-      <iframe height="315" src="video1.mp4" allowfullscreen></iframe>
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="card">
-      <h3>Cinematic High Quality car Edit</h3>
-      <iframe height="315" src="Video.mp4" allowfullscreen></iframe>
+      <h3>Cinematic High Quality Car Edit</h3>
+      <video controls>
+        <source src="Video.mp4" type="video/mp4">
+      </video>
     </div>
 
   </div>
@@ -336,7 +342,9 @@ footer {
   <h2 class="section-title">Motion Graphics Showcase</h2>
   <div class="card">
     <h3>Mograph Reel</h3>
-    <iframe height="400" src="YOUR_MOGRAPH_VIDEO_LINK" allowfullscreen></iframe>
+    <video controls>
+      <source src="mograph.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
