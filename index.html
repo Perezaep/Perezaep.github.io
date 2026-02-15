@@ -8,254 +8,251 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #0a0a0a;
-  color: white;
-  overflow-x: hidden;
+body{
+  font-family:'Inter',sans-serif;
+  background:#0a0a0a;
+  color:white;
+  overflow-x:hidden;
 }
 
-/* Navbar */
+/* ---------------- WELCOME SCREEN ---------------- */
 
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(12px);
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  border-bottom: 2px solid white;
-  box-shadow: 
-    0 0 5px white,
-    0 0 15px white,
-    0 0 30px rgba(255,255,255,0.7);
+#welcome{
+  position:fixed;
+  inset:0;
+  background:#0a0a0a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 1rem;
-  text-shadow: 0 0 10px white;
+.welcome-content{
+  text-align:center;
+  animation:fadeUp 1.2s ease forwards;
 }
 
-.brand img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 15px white;
+.welcome-content img{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 0 40px white;
+  margin-bottom:20px;
+  animation:glow 2s infinite alternate;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 25px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  transition: 0.3s;
+.welcome-content h1{
+  font-size:3rem;
+  text-shadow:0 0 20px white;
 }
 
-nav a:hover {
-  opacity: 1;
-  text-shadow: 0 0 8px white;
+.welcome-content p{
+  margin:15px 0 25px;
+  opacity:0.8;
 }
 
-/* Hero */
-
-header {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 8%;
-  background: radial-gradient(circle at top right, #222 0%, #0a0a0a 60%);
+.welcome-content button{
+  padding:12px 35px;
+  border-radius:50px;
+  border:1px solid white;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
 }
 
-h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  text-shadow: 0 0 20px white;
+.welcome-content button:hover{
+  background:white;
+  color:black;
+  box-shadow:0 0 20px white;
 }
 
-.hero-sub {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  opacity: 0.85;
-  max-width: 600px;
-  line-height: 1.6;
+@keyframes glow{
+  from{box-shadow:0 0 10px white;}
+  to{box-shadow:0 0 50px white;}
 }
 
-.hero-buttons {
-  margin-top: 35px;
+@keyframes fadeUp{
+  from{transform:translateY(40px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
 }
 
-.btn {
-  padding: 14px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-right: 15px;
-  border: 1px solid white;
-  color: white;
-  transition: 0.3s ease;
+.fade-out{
+  animation:fadeOut 1s forwards;
 }
 
-.btn:hover {
-  background: white;
-  color: black;
-  box-shadow: 0 0 20px white;
+@keyframes fadeOut{
+  to{opacity:0;visibility:hidden;}
 }
 
-/* Sections */
+/* ---------------- NAV ---------------- */
 
-section {
-  padding: 120px 8%;
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.6);
+  z-index:1000;
+  border-bottom:2px solid white;
+  box-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px white;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:700;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+.brand img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  object-fit:cover;
 }
 
-.card {
-  background: #111;
-  padding: 25px;
-  border-radius: 20px;
-  transition: 0.4s;
-  border: 1px solid #222;
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-size:.9rem;
+  opacity:.8;
+  transition:.3s;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px white;
+nav a:hover{
+  opacity:1;
+  text-shadow:0 0 8px white;
 }
 
-.card h3 {
-  margin-bottom: 15px;
+/* ---------------- HERO ---------------- */
+
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 8%;
+  background:radial-gradient(circle at top right,#222 0%,#0a0a0a 60%);
 }
 
-.price {
-  margin-top: 15px;
-  font-weight: 600;
-  text-shadow: 0 0 10px white;
+h1{
+  font-size:4rem;
+  font-weight:800;
+  text-shadow:0 0 20px white;
 }
 
-/* Video */
+.hero-sub{
+  margin-top:20px;
+  font-size:1.2rem;
+  opacity:.85;
+  max-width:600px;
+  line-height:1.6;
+}
 
-video, iframe {
-  width: 100%;
-  border-radius: 15px;
-  margin-top: 15px;
+.hero-buttons{
+  margin-top:35px;
+}
+
+.btn{
+  padding:14px 32px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  margin-right:15px;
+  border:1px solid white;
+  color:white;
+  transition:.3s ease;
+}
+
+.btn:hover{
+  background:white;
+  color:black;
+  box-shadow:0 0 20px white;
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+section{
+  padding:120px 8%;
+}
+
+.section-title{
+  font-size:2rem;
+  margin-bottom:40px;
+  text-shadow:0 0 10px white;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:#111;
+  padding:25px;
+  border-radius:20px;
+  transition:.4s;
+  border:1px solid #222;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px white;
 }
 
 /* Contact */
 
-.contact-box {
-  margin-top: 20px;
-  line-height: 2;
-  font-size: 1rem;
+.contact-box{
+  margin-top:20px;
+  line-height:2;
 }
 
-.contact-box a {
-  color: white;
-  text-decoration: none;
-  text-shadow: 0 0 8px white;
+.contact-box a{
+  color:white;
+  text-decoration:none;
+  text-shadow:0 0 8px white;
 }
 
-/* Footer */
-
-footer {
-  text-align: center;
-  padding: 40px;
-  background: #050505;
-  opacity: 0.7;
-  font-size: 0.9rem;
+footer{
+  text-align:center;
+  padding:40px;
+  background:#050505;
+  opacity:.7;
+  font-size:.9rem;
 }
 
 /* Mobile */
 
-@media (max-width: 768px) {
-
-  nav {
-    padding: 15px 20px;
-    flex-direction: column;
-    gap: 10px;
+@media(max-width:768px){
+  nav{
+    padding:15px 20px;
+    flex-direction:column;
+    gap:10px;
   }
-
-  nav div:last-child {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+  header{
+    text-align:center;
   }
-
-  nav a {
-    margin-left: 0;
-    font-size: 0.85rem;
+  h1{
+    font-size:2.3rem;
   }
-
-  header {
-    padding: 0 5%;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-sub {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    margin: 10px 0;
-    width: 80%;
-    text-align: center;
-  }
-
-  section {
-    padding: 80px 5%;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-box {
-    text-align: center;
+  section{
+    padding:80px 5%;
   }
 }
 </style>
@@ -263,29 +260,34 @@ footer {
 
 <body>
 
+<!-- WELCOME SCREEN -->
+<div id="welcome">
+  <div class="welcome-content">
+    <img src="pfp.png" alt="Perez PFP">
+    <h1>Perez AEP</h1>
+    <p>Video Editor & Motion Designer</p>
+    <button onclick="enterSite()">Enter</button>
+  </div>
+</div>
+
 <nav>
   <div class="brand">
     <img src="pfp.png" alt="Perez PFP">
     perez._.aep
   </div>
-
   <div>
     <a href="#services">Services</a>
     <a href="#work">Work</a>
-    <a href="#mograph">Mograph</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <header>
-  <h1><u>Perez Aep</u></h1>
+  <h1>Perez AEP</h1>
   <p class="hero-sub">
-    Ethiopian-based video editor with 2+ years of experience crafting high-impact,
-    cinematic short-form edits and motion graphics. With over 120K+ likes and multiple
-    300K+ view projects, I specialize in scroll-stopping visuals that increase retention,
-    engagement, and brand presence.
+    Ethiopian-based video editor creating high-impact cinematic short-form edits 
+    and motion graphics that boost retention and engagement.
   </p>
-
   <div class="hero-buttons">
     <a href="#work" class="btn">View My Work</a>
     <a href="#contact" class="btn">Work With Me</a>
@@ -295,25 +297,18 @@ footer {
 <section id="services">
   <h2 class="section-title">Services</h2>
   <div class="grid">
-
     <div class="card">
       <h3>Short-Form Edits</h3>
-      <p>High-retention TikTok, Reels & YouTube Shorts optimized for viral performance and clean cinematic pacing.</p>
-      <div class="price">Starting at $30</div>
+      <p>High-retention TikTok, Reels & YouTube Shorts.</p>
     </div>
-
     <div class="card">
       <h3>Motion Graphics</h3>
-      <p>Custom transitions, text animations, and advanced After Effects compositions designed to elevate brand visuals.</p>
-      <div class="price">Starting at $40</div>
+      <p>Advanced transitions and animated compositions.</p>
     </div>
-
     <div class="card">
       <h3>YouTube Editing</h3>
-      <p>Story-driven long-form edits focused on pacing, audience retention, and algorithm performance.</p>
-      <div class="price">Starting at $60</div>
+      <p>Story-driven long-form content optimized for retention.</p>
     </div>
-
   </div>
 </section>
 
@@ -323,34 +318,27 @@ footer {
 
     <div class="card">
       <h3>Viral Edit (300K+ Views)</h3>
-      <video controls>
-        <source src="video1.mp4" type="video/mp4">
-      </video>
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@perez._.aep/video/7568528085075725624"
+        data-video-id="7568528085075725624"
+        style="max-width:100%;">
+      </blockquote>
     </div>
 
     <div class="card">
       <h3>Cinematic High Quality Car Edit</h3>
-      <video controls>
-        <source src="Video.mp4" type="video/mp4">
-      </video>
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@perez._.aep/video/7561862100931415352"
+        data-video-id="7561862100931415352"
+        style="max-width:100%;">
+      </blockquote>
     </div>
 
-  </div>
-</section>
-
-<section id="mograph">
-  <h2 class="section-title">Motion Graphics Showcase</h2>
-  <div class="card">
-    <h3>Mograph Reel</h3>
-    <video controls>
-      <source src="mograph.mp4" type="video/mp4">
-    </video>
   </div>
 </section>
 
 <section id="contact">
   <h2 class="section-title">Contact</h2>
-
   <div class="contact-box">
     📧 Email: <a href="mailto:perezhamaro@gmail.com">perezhamaro@gmail.com</a><br>
     🎵 TikTok: <a href="https://www.tiktok.com/@perez._.aep" target="_blank">perez._.aep</a><br>
@@ -361,6 +349,14 @@ footer {
 <footer>
   © 2026 Perez AEP
 </footer>
+
+<script>
+function enterSite(){
+  document.getElementById("welcome").classList.add("fade-out");
+}
+</script>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
 
 </body>
 </html>
