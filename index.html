@@ -1,295 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perez AEP | Video Editor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perez AEP | Video Editor</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #0a0a0a;
-  color: white;
-  overflow-x: hidden;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+      font-size: clamp(0.9rem, 2vw, 1rem); /* fluid base text */
+    }
 
-/* Navbar */
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      border-bottom: 2px solid white;
+      box-shadow: 
+        0 0 5px white,
+        0 0 15px white,
+        0 0 30px rgba(255,255,255,0.7);
+    }
 
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(12px);
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  border-bottom: 2px solid white;
-  box-shadow: 
-    0 0 5px white,
-    0 0 15px white,
-    0 0 30px rgba(255,255,255,0.7);
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      text-shadow: 0 0 10px white;
+    }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 1rem;
-  text-shadow: 0 0 10px white;
-}
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px white;
+    }
 
-.brand img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 15px white;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      opacity: 0.8;
+      transition: 0.3s;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 25px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  transition: 0.3s;
-}
+    nav a:hover {
+      opacity: 1;
+      text-shadow: 0 0 8px white;
+    }
 
-nav a:hover {
-  opacity: 1;
-  text-shadow: 0 0 8px white;
-}
+    /* Hero */
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8%;
+      background: radial-gradient(circle at top right, #222 0%, #0a0a0a 60%);
+    }
 
-/* Hero */
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 800;
+      text-shadow: 0 0 20px white;
+    }
 
-header {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 8%;
-  background: radial-gradient(circle at top right, #222 0%, #0a0a0a 60%);
-}
+    .hero-sub {
+      margin-top: 20px;
+      font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+      opacity: 0.85;
+      max-width: 600px;
+      line-height: 1.6;
+    }
 
-h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  text-shadow: 0 0 20px white;
-}
+    .hero-buttons {
+      margin-top: 35px;
+    }
 
-.hero-sub {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  opacity: 0.85;
-  max-width: 600px;
-  line-height: 1.6;
-}
+    .btn {
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 15px;
+      border: 1px solid white;
+      color: white;
+      transition: 0.3s ease;
+    }
 
-.hero-buttons {
-  margin-top: 35px;
-}
+    .btn:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 20px white;
+    }
 
-.btn {
-  padding: 14px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-right: 15px;
-  border: 1px solid white;
-  color: white;
-  transition: 0.3s ease;
-}
+    /* Sections */
+    section {
+      padding: 120px 8%;
+    }
 
-.btn:hover {
-  background: white;
-  color: black;
-  box-shadow: 0 0 20px white;
-}
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px white;
+    }
 
-/* Sections */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
 
-section {
-  padding: 120px 8%;
-}
+    .card {
+      background: #111;
+      padding: 25px;
+      border-radius: 20px;
+      transition: 0.4s;
+      border: 1px solid #222;
+    }
 
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px white;
-}
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px white;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: clamp(1rem, 3vw, 1.3rem);
+    }
 
-.card {
-  background: #111;
-  padding: 25px;
-  border-radius: 20px;
-  transition: 0.4s;
-  border: 1px solid #222;
-}
+    .price {
+      margin-top: 15px;
+      font-weight: 600;
+      text-shadow: 0 0 10px white;
+    }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px white;
-}
+    /* Video */
+    iframe {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
 
-.card h3 {
-  margin-bottom: 15px;
-}
+    /* Contact */
+    .contact-box {
+      margin-top: 20px;
+      line-height: 2;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+    }
 
-.price {
-  margin-top: 15px;
-  font-weight: 600;
-  text-shadow: 0 0 10px white;
-}
+    .contact-box a {
+      color: white;
+      text-decoration: none;
+      text-shadow: 0 0 8px white;
+    }
 
-/* Video */
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #050505;
+      opacity: 0.7;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+    }
 
-iframe {
-  width: 100%;
-  border-radius: 15px;
-  margin-top: 15px;
-}
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 15px 20px;
+        text-align: center;
+      }
 
-/* Contact */
+      nav a {
+        margin: 10px 0;
+        display: inline-block;
+      }
 
-.contact-box {
-  margin-top: 20px;
-  line-height: 2;
-  font-size: 1rem;
-}
+      header {
+        padding: 0 5%;
+        text-align: center;
+      }
 
-.contact-box a {
-  color: white;
-  text-decoration: none;
-  text-shadow: 0 0 8px white;
-}
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
 
-/* Footer */
+      .btn {
+        margin: 0;
+        width: 80%;
+        text-align: center;
+      }
 
-footer {
-  text-align: center;
-  padding: 40px;
-  background: #050505;
-  opacity: 0.7;
-  font-size: 0.9rem;
-}
+      section {
+        padding: 80px 5%;
+      }
 
-</style>
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<nav>
-  <div class="brand">
-    <img src="pfp.png" alt="Perez PFP">
-    perez._.aep
-  </div>
-
-  <div>
-    <a href="#services">Services</a>
-    <a href="#work">Work</a>
-    <a href="#mograph">Mograph</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<header>
-  <h1><u>Perez Aep</u></h1>
-  <p class="hero-sub">
-    Ethiopian-based video editor with 2+ years of experience crafting high-impact,
-    cinematic short-form edits and motion graphics. With over 120K+ likes and multiple
-    300K+ view projects, I specialize in scroll-stopping visuals that increase retention,
-    engagement, and brand presence.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="#work" class="btn">View My Work</a>
-    <a href="#contact" class="btn">Work With Me</a>
-  </div>
-</header>
-
-<section id="services">
-  <h2 class="section-title">Services</h2>
-  <div class="grid">
-
-    <div class="card">
-      <h3>Short-Form Edits</h3>
-      <p>High-retention TikTok, Reels & YouTube Shorts optimized for viral performance and clean cinematic pacing.</p>
-      <div class="price">Starting at $30</div>
+  <nav>
+    <div class="brand">
+      <img src="pfp.png" alt="Perez PFP">
+      perez._.aep
     </div>
-
-    <div class="card">
-      <h3>Motion Graphics</h3>
-      <p>Custom transitions, text animations, and advanced After Effects compositions designed to elevate brand visuals.</p>
-      <div class="price">Starting at $40</div>
+    <div>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#mograph">Mograph</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
 
-    <div class="card">
-      <h3>YouTube Editing</h3>
-      <p>Story-driven long-form edits focused on pacing, audience retention, and algorithm performance.</p>
-      <div class="price">Starting at $60</div>
+  <header>
+    <h1><u>Perez Aep</u></h1>
+    <p class="hero-sub">
+      Ethiopian-based video editor with 2+ years of experience crafting high-impact,
+      cinematic short-form edits and motion graphics. With over 120K+ likes and multiple
+      300K+ view projects, I specialize in scroll-stopping visuals that increase retention,
+      engagement, and brand presence.
+    </p>
+    <div class="hero-buttons">
+      <a href="#work" class="btn">View My Work</a>
+      <a href="#contact" class="btn">Work With Me</a>
     </div>
+  </header>
 
-  </div>
-</section>
-
-<section id="work">
-  <h2 class="section-title">Featured Work</h2>
-  <div class="grid">
-
-    <div class="card">
-      <h3>Viral Edit (300K+ Views)</h3>
-      <iframe height="315" src="video1.mp4" allowfullscreen></iframe>
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Short-Form Edits</h3>
+        <p>High-retention TikTok, Reels & YouTube Shorts optimized for viral performance and clean cinematic pacing.</p>
+        <div class="price">Starting at $30</div>
+      </div>
+      <div class="card">
+        <h3>Motion Graphics</h3>
+        <p>Custom transitions, text animations, and advanced After Effects compositions designed to elevate brand visuals.</p>
+        <div class="price">Starting at $40</div>
+      </div>
+      <div class="card">
+        <h3>YouTube Editing</h3>
+        <p>Story-driven long-form edits focused on pacing, audience retention, and algorithm performance.</p>
+        <div class="price">Starting at $60</div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Cinematic High Quality car Edit</h3>
-      <iframe height="315" src="Video.mp4" allowfullscreen></iframe>
+  <section id="work">
+    <h2 class="section-title">Featured Work</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Viral Edit (300K+ Views)</h3>
+        <iframe height="315" src="video1.mp4" allowfullscreen></iframe>
+      </div>
+      <div class="card">
+        <h3>Cinematic High Quality Car Edit</h3>
+        <iframe height="315" src="video.mp4" allowfullscreen></iframe>
+      </div>
     </div>
-
-  </div>
-</section>
-
-<section id="mograph">
-  <h2 class="section-title">Motion Graphics Showcase</h2>
-  <div class="card">
-    <h3>Mograph Reel</h3>
-    <iframe height="400" src="YOUR_MOGRAPH_VIDEO_LINK" allowfullscreen></iframe>
-  </div>
-</section>
-
-<section id="contact">
-  <h2 class="section-title">Contact</h2>
-
-  <div class="contact-box">
-    📧 Email: <a href="mailto:perezhamaro@gmail.com">perezhamaro@gmail.com</a><br>
-    🎵 TikTok: <a href="https://www.tiktok.com/@perez._.aep" target="_blank">perez._.aep</a><br>
-    📱 Telegram: <a href="https://t.me/Perez_aep" target="_blank">Perez Aep</a>
-  </div>
-</section>
-
-<footer>
-  © 2026 Perez AEP
-</footer>
-
-</body>
-</html>
+ 
