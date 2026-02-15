@@ -22,7 +22,13 @@ body{
   overflow-x:hidden;
 }
 
-/* ---------------- WELCOME SCREEN ---------------- */
+/* Hide site until enter */
+#main-content{
+  opacity:0;
+  transition:opacity 1s ease;
+}
+
+/* ---------------- WELCOME ---------------- */
 
 #welcome{
   position:fixed;
@@ -40,11 +46,11 @@ body{
 }
 
 .welcome-content img{
-  width:130px;
-  height:130px;
+  width:140px;
+  height:140px;
   border-radius:50%;
   object-fit:cover;
-  box-shadow:0 0 40px white;
+  box-shadow:0 0 50px white;
   margin-bottom:20px;
   animation:glow 2s infinite alternate;
 }
@@ -56,11 +62,11 @@ body{
 
 .welcome-content p{
   margin:15px 0 25px;
-  opacity:0.8;
+  opacity:.8;
 }
 
 .welcome-content button{
-  padding:12px 35px;
+  padding:12px 40px;
   border-radius:50px;
   border:1px solid white;
   background:transparent;
@@ -77,20 +83,12 @@ body{
 
 @keyframes glow{
   from{box-shadow:0 0 10px white;}
-  to{box-shadow:0 0 50px white;}
+  to{box-shadow:0 0 60px white;}
 }
 
 @keyframes fadeUp{
   from{transform:translateY(40px);opacity:0;}
   to{transform:translateY(0);opacity:1;}
-}
-
-.fade-out{
-  animation:fadeOut 1s forwards;
-}
-
-@keyframes fadeOut{
-  to{opacity:0;visibility:hidden;}
 }
 
 /* ---------------- NAV ---------------- */
@@ -108,7 +106,6 @@ nav{
   background:rgba(0,0,0,0.6);
   z-index:1000;
   border-bottom:2px solid white;
-  box-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
 .brand{
@@ -129,7 +126,6 @@ nav a{
   color:white;
   text-decoration:none;
   margin-left:25px;
-  font-size:.9rem;
   opacity:.8;
   transition:.3s;
 }
@@ -150,33 +146,26 @@ header{
   background:radial-gradient(circle at top right,#222 0%,#0a0a0a 60%);
 }
 
-h1{
+header h1{
   font-size:4rem;
-  font-weight:800;
   text-shadow:0 0 20px white;
 }
 
 .hero-sub{
   margin-top:20px;
-  font-size:1.2rem;
-  opacity:.85;
   max-width:600px;
-  line-height:1.6;
-}
-
-.hero-buttons{
-  margin-top:35px;
+  opacity:.85;
 }
 
 .btn{
+  display:inline-block;
+  margin-top:30px;
   padding:14px 32px;
   border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  margin-right:15px;
   border:1px solid white;
   color:white;
-  transition:.3s ease;
+  text-decoration:none;
+  transition:.3s;
 }
 
 .btn:hover{
@@ -207,8 +196,8 @@ section{
   background:#111;
   padding:25px;
   border-radius:20px;
-  transition:.4s;
   border:1px solid #222;
+  transition:.4s;
 }
 
 .card:hover{
@@ -216,43 +205,25 @@ section{
   box-shadow:0 0 25px white;
 }
 
-/* Contact */
-
-.contact-box{
-  margin-top:20px;
-  line-height:2;
-}
-
-.contact-box a{
-  color:white;
-  text-decoration:none;
-  text-shadow:0 0 8px white;
-}
-
 footer{
   text-align:center;
   padding:40px;
   background:#050505;
   opacity:.7;
-  font-size:.9rem;
 }
 
-/* Mobile */
+/* TikTok sizing fix */
+.tiktok-embed{
+  min-width:100% !important;
+}
 
 @media(max-width:768px){
   nav{
-    padding:15px 20px;
     flex-direction:column;
-    gap:10px;
+    padding:15px 20px;
   }
-  header{
-    text-align:center;
-  }
-  h1{
+  header h1{
     font-size:2.3rem;
-  }
-  section{
-    padding:80px 5%;
   }
 }
 </style>
@@ -260,7 +231,7 @@ footer{
 
 <body>
 
-<!-- WELCOME SCREEN -->
+<!-- WELCOME -->
 <div id="welcome">
   <div class="welcome-content">
     <img src="pfp.png" alt="Perez PFP">
@@ -269,6 +240,9 @@ footer{
     <button onclick="enterSite()">Enter</button>
   </div>
 </div>
+
+<!-- MAIN SITE -->
+<div id="main-content">
 
 <nav>
   <div class="brand">
@@ -285,32 +259,10 @@ footer{
 <header>
   <h1>Perez AEP</h1>
   <p class="hero-sub">
-    Ethiopian-based video editor creating high-impact cinematic short-form edits 
-    and motion graphics that boost retention and engagement.
+    Ethiopian-based video editor crafting cinematic short-form edits and motion graphics.
   </p>
-  <div class="hero-buttons">
-    <a href="#work" class="btn">View My Work</a>
-    <a href="#contact" class="btn">Work With Me</a>
-  </div>
+  <a href="#work" class="btn">View My Work</a>
 </header>
-
-<section id="services">
-  <h2 class="section-title">Services</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Short-Form Edits</h3>
-      <p>High-retention TikTok, Reels & YouTube Shorts.</p>
-    </div>
-    <div class="card">
-      <h3>Motion Graphics</h3>
-      <p>Advanced transitions and animated compositions.</p>
-    </div>
-    <div class="card">
-      <h3>YouTube Editing</h3>
-      <p>Story-driven long-form content optimized for retention.</p>
-    </div>
-  </div>
-</section>
 
 <section id="work">
   <h2 class="section-title">Featured Work</h2>
@@ -320,8 +272,7 @@ footer{
       <h3>Viral Edit (300K+ Views)</h3>
       <blockquote class="tiktok-embed"
         cite="https://www.tiktok.com/@perez._.aep/video/7568528085075725624"
-        data-video-id="7568528085075725624"
-        style="max-width:100%;">
+        data-video-id="7568528085075725624">
       </blockquote>
     </div>
 
@@ -329,20 +280,10 @@ footer{
       <h3>Cinematic High Quality Car Edit</h3>
       <blockquote class="tiktok-embed"
         cite="https://www.tiktok.com/@perez._.aep/video/7561862100931415352"
-        data-video-id="7561862100931415352"
-        style="max-width:100%;">
+        data-video-id="7561862100931415352">
       </blockquote>
     </div>
 
-  </div>
-</section>
-
-<section id="contact">
-  <h2 class="section-title">Contact</h2>
-  <div class="contact-box">
-    📧 Email: <a href="mailto:perezhamaro@gmail.com">perezhamaro@gmail.com</a><br>
-    🎵 TikTok: <a href="https://www.tiktok.com/@perez._.aep" target="_blank">perez._.aep</a><br>
-    📱 Telegram: <a href="https://t.me/Perez_aep" target="_blank">Perez Aep</a>
   </div>
 </section>
 
@@ -350,9 +291,12 @@ footer{
   © 2026 Perez AEP
 </footer>
 
+</div>
+
 <script>
 function enterSite(){
-  document.getElementById("welcome").classList.add("fade-out");
+  document.getElementById("welcome").style.display="none";
+  document.getElementById("main-content").style.opacity="1";
 }
 </script>
 
