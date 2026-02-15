@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,48 +8,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --primary-color: white;
-  --secondary-color: #0a0a0a;
-  --accent-color: rgba(255, 255, 255, 0.7);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background: #0a0a0a;
+  color: white;
   overflow-x: hidden;
-  margin: 0;
 }
 
 /* Navbar */
 
 nav {
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
-  width: 100%;
-  padding: 1.25rem 3.75rem;
+  padding: 20px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   backdrop-filter: blur(12px);
-  background-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid white;
   box-shadow: 
-    0 0 5px var(--primary-color),
-    0 0 15px var(--primary-color),
-    0 0 30px var(--accent-color);
+    0 0 5px white,
+    0 0 15px white,
+    0 0 30px rgba(255,255,255,0.7);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   font-weight: 700;
   font-size: 1rem;
-  text-shadow: 0 0 10px var(--primary-color);
+  text-shadow: 0 0 10px white;
 }
 
 .brand img {
@@ -58,21 +57,21 @@ nav {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 15px var(--primary-color);
+  box-shadow: 0 0 15px white;
 }
 
 nav a {
-  color: var(--primary-color);
+  color: white;
   text-decoration: none;
-  margin-left: 1.5625rem;
+  margin-left: 25px;
   font-size: 0.9rem;
   opacity: 0.8;
-  transition: opacity 0.3s, text-shadow 0.3s;
+  transition: 0.3s;
 }
 
 nav a:hover {
   opacity: 1;
-  text-shadow: 0 0 8px var(--primary-color);
+  text-shadow: 0 0 8px white;
 }
 
 /* Hero */
@@ -83,17 +82,17 @@ header {
   flex-direction: column;
   justify-content: center;
   padding: 0 8%;
-  background: radial-gradient(circle at top right, #222 0%, var(--secondary-color) 60%);
+  background: radial-gradient(circle at top right, #222 0%, #0a0a0a 60%);
 }
 
 h1 {
   font-size: 4rem;
   font-weight: 800;
-  text-shadow: 0 0 20px var(--primary-color);
+  text-shadow: 0 0 20px white;
 }
 
 .hero-sub {
-  margin-top: 1.25rem;
+  margin-top: 20px;
   font-size: 1.2rem;
   opacity: 0.85;
   max-width: 600px;
@@ -101,116 +100,114 @@ h1 {
 }
 
 .hero-buttons {
-  margin-top: 2.1875rem;
+  margin-top: 35px;
 }
 
 .btn {
-  padding: 0.875rem 2rem;
+  padding: 14px 32px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  margin-right: 0.9375rem;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-  background-color: transparent;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 15px;
+  border: 1px solid white;
+  color: white;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  box-shadow: 0 0 20px var(--primary-color);
+  background: white;
+  color: black;
+  box-shadow: 0 0 20px white;
 }
 
 /* Sections */
 
 section {
-  padding: 7.5rem 8%;
+  padding: 120px 8%;
 }
 
 .section-title {
   font-size: 2rem;
-  margin-bottom: 2.5rem;
-  text-shadow: 0 0 10px var(--primary-color);
-  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px white;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.875rem;
+  gap: 30px;
 }
 
 .card {
-  background-color: #111;
-  padding: 1.5625rem;
+  background: #111;
+  padding: 25px;
   border-radius: 20px;
-  transition: transform 0.4s, box-shadow 0.4s;
+  transition: 0.4s;
   border: 1px solid #222;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 25px var(--primary-color);
+  box-shadow: 0 0 25px white;
 }
 
 .card h3 {
-  margin-bottom: 0.9375rem;
-  text-align: center;
+  margin-bottom: 15px;
 }
 
 .price {
-  margin-top: 0.9375rem;
+  margin-top: 15px;
   font-weight: 600;
-  text-shadow: 0 0 10px var(--primary-color);
+  text-shadow: 0 0 10px white;
 }
 
 /* Video */
 
-iframe {
+video, iframe {
   width: 100%;
   border-radius: 15px;
-  margin-top: 0.9375rem;
+  margin-top: 15px;
 }
 
 /* Contact */
 
 .contact-box {
-  margin-top: 1.25rem;
+  margin-top: 20px;
   line-height: 2;
   font-size: 1rem;
-  text-align: center;
 }
 
 .contact-box a {
-  color: var(--primary-color);
+  color: white;
   text-decoration: none;
-  text-shadow: 0 0 8px var(--primary-color);
+  text-shadow: 0 0 8px white;
 }
 
 /* Footer */
 
 footer {
   text-align: center;
-  padding: 2.5rem;
-  background-color: #050505;
+  padding: 40px;
+  background: #050505;
   opacity: 0.7;
   font-size: 0.9rem;
 }
 
-/* Media Queries */
+/* Mobile */
+
 @media (max-width: 768px) {
+
   nav {
-    padding: 0.9375rem 1.25rem;
+    padding: 15px 20px;
     flex-direction: column;
-    gap: 0.625rem;
+    gap: 10px;
   }
 
   nav div:last-child {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.9375rem;
+    gap: 15px;
   }
 
   nav a {
@@ -239,49 +236,27 @@ footer {
   }
 
   .btn {
-    margin: 0.625rem 0;
+    margin: 10px 0;
     width: 80%;
     text-align: center;
   }
 
   section {
-    padding: 5rem 5%;
+    padding: 80px 5%;
   }
 
   .section-title {
     font-size: 1.5rem;
+    text-align: center;
   }
 
   .grid {
     grid-template-columns: 1fr;
   }
-}
 
-/* Utility Classes */
-.underline {
-  text-decoration: underline;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.mt-1 {
-  margin-top: 1rem;
-}
-
-.mb-1 {
-  margin-bottom: 1rem;
-}
-
-.py-1 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-1 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  .contact-box {
+    text-align: center;
+  }
 }
 </style>
 </head>
@@ -303,7 +278,7 @@ footer {
 </nav>
 
 <header>
-  <h1><span class="underline">Perez Aep</span></h1>
+  <h1><u>Perez Aep</u></h1>
   <p class="hero-sub">
     Ethiopian-based video editor with 2+ years of experience crafting high-impact,
     cinematic short-form edits and motion graphics. With over 120K+ likes and multiple
@@ -348,12 +323,16 @@ footer {
 
     <div class="card">
       <h3>Viral Edit (300K+ Views)</h3>
-      <iframe height="315" src="video1.mp4" allowfullscreen></iframe>
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="card">
-      <h3>Cinematic High Quality car Edit</h3>
-      <iframe height="315" src="Video.mp4" allowfullscreen></iframe>
+      <h3>Cinematic High Quality Car Edit</h3>
+      <video controls>
+        <source src="Video.mp4" type="video/mp4">
+      </video>
     </div>
 
   </div>
@@ -363,7 +342,9 @@ footer {
   <h2 class="section-title">Motion Graphics Showcase</h2>
   <div class="card">
     <h3>Mograph Reel</h3>
-    <iframe height="400" src="YOUR_MOGRAPH_VIDEO_LINK" allowfullscreen></iframe>
+    <video controls>
+      <source src="mograph.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
@@ -383,4 +364,3 @@ footer {
 
 </body>
 </html>
-```
