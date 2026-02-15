@@ -22,13 +22,7 @@ body{
   overflow-x:hidden;
 }
 
-/* Hide site until enter */
-#main-content{
-  opacity:0;
-  transition:opacity 1s ease;
-}
-
-/* ---------------- WELCOME ---------------- */
+/* ================= WELCOME SCREEN ================= */
 
 #welcome{
   position:fixed;
@@ -91,7 +85,7 @@ body{
   to{transform:translateY(0);opacity:1;}
 }
 
-/* ---------------- NAV ---------------- */
+/* ================= NAV ================= */
 
 nav{
   position:fixed;
@@ -106,6 +100,7 @@ nav{
   background:rgba(0,0,0,0.6);
   z-index:1000;
   border-bottom:2px solid white;
+  box-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
 .brand{
@@ -135,7 +130,7 @@ nav a:hover{
   text-shadow:0 0 8px white;
 }
 
-/* ---------------- HERO ---------------- */
+/* ================= HERO ================= */
 
 header{
   height:100vh;
@@ -153,19 +148,25 @@ header h1{
 
 .hero-sub{
   margin-top:20px;
+  font-size:1.2rem;
   max-width:600px;
   opacity:.85;
+  line-height:1.6;
+}
+
+.hero-buttons{
+  margin-top:35px;
 }
 
 .btn{
-  display:inline-block;
-  margin-top:30px;
   padding:14px 32px;
   border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  margin-right:15px;
   border:1px solid white;
   color:white;
-  text-decoration:none;
-  transition:.3s;
+  transition:.3s ease;
 }
 
 .btn:hover{
@@ -174,7 +175,7 @@ header h1{
   box-shadow:0 0 20px white;
 }
 
-/* ---------------- SECTIONS ---------------- */
+/* ================= SECTIONS ================= */
 
 section{
   padding:120px 8%;
@@ -220,12 +221,25 @@ section{
   margin-top:15px;
 }
 
+.contact-box{
+  margin-top:20px;
+  line-height:2;
+}
+
+.contact-box a{
+  color:white;
+  text-decoration:none;
+  text-shadow:0 0 8px white;
+}
+
 footer{
   text-align:center;
   padding:40px;
   background:#050505;
   opacity:.7;
 }
+
+/* Mobile */
 
 @media(max-width:768px){
   nav{
@@ -234,6 +248,9 @@ footer{
   }
   header h1{
     font-size:2.3rem;
+  }
+  section{
+    padding:80px 5%;
   }
   .tiktok-frame{
     height:500px;
@@ -254,8 +271,6 @@ footer{
   </div>
 </div>
 
-<div id="main-content">
-
 <nav>
   <div class="brand">
     <img src="pfp.png" alt="Perez PFP">
@@ -264,6 +279,7 @@ footer{
   <div>
     <a href="#services">Services</a>
     <a href="#work">Work</a>
+    <a href="#mograph">Mograph</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -271,9 +287,13 @@ footer{
 <header>
   <h1>Perez AEP</h1>
   <p class="hero-sub">
-    Ethiopian-based video editor crafting cinematic short-form edits and motion graphics.
+    Ethiopian-based video editor with 2+ years of experience crafting high-impact,
+    cinematic short-form edits and motion graphics.
   </p>
-  <a href="#work" class="btn">View My Work</a>
+  <div class="hero-buttons">
+    <a href="#work" class="btn">View My Work</a>
+    <a href="#contact" class="btn">Work With Me</a>
+  </div>
 </header>
 
 <section id="services">
@@ -282,19 +302,19 @@ footer{
 
     <div class="card">
       <h3>Short-Form Edits</h3>
-      <p>High-retention TikTok, Reels & YouTube Shorts optimized for viral performance.</p>
+      <p>High-retention TikTok, Reels & Shorts optimized for viral performance.</p>
       <div class="price">Starting at $30</div>
     </div>
 
     <div class="card">
       <h3>Motion Graphics</h3>
-      <p>Custom transitions and advanced After Effects compositions.</p>
+      <p>Custom transitions, text animations, and advanced compositions.</p>
       <div class="price">Starting at $40</div>
     </div>
 
     <div class="card">
       <h3>YouTube Editing</h3>
-      <p>Story-driven long-form edits focused on retention and pacing.</p>
+      <p>Story-driven long-form edits focused on pacing and retention.</p>
       <div class="price">Starting at $60</div>
     </div>
 
@@ -307,16 +327,14 @@ footer{
 
     <div class="card">
       <h3>Viral Edit (300K+ Views)</h3>
-      <iframe 
-        class="tiktok-frame"
+      <iframe class="tiktok-frame"
         src="https://www.tiktok.com/embed/v2/7568528085075725624">
       </iframe>
     </div>
 
     <div class="card">
       <h3>Cinematic High Quality Car Edit</h3>
-      <iframe 
-        class="tiktok-frame"
+      <iframe class="tiktok-frame"
         src="https://www.tiktok.com/embed/v2/7561862100931415352">
       </iframe>
     </div>
@@ -324,25 +342,30 @@ footer{
   </div>
 </section>
 
+<section id="mograph">
+  <h2 class="section-title">Motion Graphics Showcase</h2>
+  <div class="card">
+    <h3>Mograph Reel</h3>
+    <p>Add your hosted mograph video here (MP4 or YouTube embed).</p>
+  </div>
+</section>
+
 <section id="contact">
   <h2 class="section-title">Contact</h2>
-  <p>
-    📧 <a href="mailto:perezhamaro@gmail.com" style="color:white;">perezhamaro@gmail.com</a><br>
-    🎵 <a href="https://www.tiktok.com/@perez._.aep" target="_blank" style="color:white;">@perez._.aep</a><br>
-    📱 <a href="https://t.me/Perez_aep" target="_blank" style="color:white;">Telegram</a>
-  </p>
+  <div class="contact-box">
+    📧 Email: <a href="mailto:perezhamaro@gmail.com">perezhamaro@gmail.com</a><br>
+    🎵 TikTok: <a href="https://www.tiktok.com/@perez._.aep" target="_blank">@perez._.aep</a><br>
+    📱 Telegram: <a href="https://t.me/Perez_aep" target="_blank">Perez Aep</a>
+  </div>
 </section>
 
 <footer>
   © 2026 Perez AEP
 </footer>
 
-</div>
-
 <script>
 function enterSite(){
   document.getElementById("welcome").style.display="none";
-  document.getElementById("main-content").style.opacity="1";
 }
 </script>
 
